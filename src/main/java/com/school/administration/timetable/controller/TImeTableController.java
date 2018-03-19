@@ -1,5 +1,6 @@
 package com.school.administration.timetable.controller;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,9 @@ public class TImeTableController {
 	@Autowired
 	private TimeTableService timeTableService;
 	
-	@GetMapping("/teacher/{teacherId}")
-	public List<TimeTableTo> getTimeSheetForTeacher(@PathVariable("teacherId") Long teacherId) {
-		return timeTableService.getTimeTableForTeacher(teacherId);
+	@GetMapping("/teacher/{teacherId}/{dateOfWeek}")
+	public List<TimeTableTo> getTimeSheetForTeacher(@PathVariable("teacherId") Long teacherId, @PathVariable("dateOfWeek") Integer dateOfWeek) {
+		return timeTableService.getTimeTableForTeacher(teacherId, DayOfWeek.of(dateOfWeek));
 	}
 
 }

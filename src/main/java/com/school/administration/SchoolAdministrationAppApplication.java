@@ -1,5 +1,6 @@
 package com.school.administration;
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 
 import com.school.administration.branch.service.SchoolBranchService;
 import com.school.administration.model.ClassRoom;
-import com.school.administration.model.Day;
 import com.school.administration.model.Period;
 import com.school.administration.model.SchoolBranch;
 import com.school.administration.model.Student;
@@ -41,7 +41,7 @@ public class SchoolAdministrationAppApplication {
 
 	private List<TimeTable> createTimetable(int i) {
 		 List<TimeTable> timeTables = new ArrayList<>();
-		 timeTables.add(new TimeTable(null, "timeTableName"+i, Day.MONDAY, null, createPeriod(i)));
+		 timeTables.add(new TimeTable(null, "timeTableName"+i, DayOfWeek.MONDAY, null, createPeriod(i)));
 		return timeTables;
 	}
 

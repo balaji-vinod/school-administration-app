@@ -1,5 +1,6 @@
 package com.school.administration.model;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -21,7 +22,7 @@ public class TimeTable {
 	private Long timeTableId;
 	private String timeTableName;
 	
-	private Day day;
+	private DayOfWeek dayOfWeek;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="class_room_id")
@@ -36,11 +37,11 @@ public class TimeTable {
 		super();
 	}
 	
-	public TimeTable(Long timeTableId, String timeTableName, Day day, ClassRoom classRoom, List<Period> period) {
+	public TimeTable(Long timeTableId, String timeTableName, DayOfWeek dayOfWeek, ClassRoom classRoom, List<Period> period) {
 		super();
 		this.timeTableId = timeTableId;
 		this.timeTableName = timeTableName;
-		this.day = day;
+		this.dayOfWeek = dayOfWeek;
 		this.classRoom = classRoom;
 		this.period = period;
 	}
@@ -57,12 +58,7 @@ public class TimeTable {
 	public void setTimeTableName(String timeTableName) {
 		this.timeTableName = timeTableName;
 	}
-	public Day getDay() {
-		return day;
-	}
-	public void setDay(Day day) {
-		this.day = day;
-	}
+	
 	public ClassRoom getClassRoom() {
 		return classRoom;
 	}
@@ -74,6 +70,14 @@ public class TimeTable {
 	}
 	public void setPeriod(List<Period> period) {
 		this.period = period;
+	}
+
+	public DayOfWeek getDayOfWeek() {
+		return dayOfWeek;
+	}
+
+	public void setDayOfWeek(DayOfWeek dayOfWeek) {
+		this.dayOfWeek = dayOfWeek;
 	}
 
 }

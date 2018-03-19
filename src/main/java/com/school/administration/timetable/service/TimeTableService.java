@@ -1,5 +1,6 @@
 package com.school.administration.timetable.service;
 
+import java.time.DayOfWeek;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class TimeTableService {
 	@Autowired
 	private TimeTableRepository TimeTableRepository;
 	
-	public List<TimeTableTo> getTimeTableForTeacher(Long teacherId) {
-		return TimeTableRepository.find(teacherId);
+	public List<TimeTableTo> getTimeTableForTeacher(Long teacherId, DayOfWeek dayOfWeek) {
+		return TimeTableRepository.find(teacherId, dayOfWeek);
 	}
 
 }
