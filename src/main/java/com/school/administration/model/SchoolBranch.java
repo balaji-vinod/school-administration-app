@@ -2,12 +2,15 @@ package com.school.administration.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class SchoolBranch {
@@ -18,8 +21,9 @@ public class SchoolBranch {
 	private String branchName;
 	private String branchLocation;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="branch_id")
+	@JsonIgnore
 	private List<ClassRoom> classRooms;
 
 	public SchoolBranch() {

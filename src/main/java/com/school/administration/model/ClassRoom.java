@@ -2,6 +2,7 @@ package com.school.administration.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ClassRoom {
@@ -21,14 +24,17 @@ public class ClassRoom {
 	private String standard;
 	private String section;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="class_room_id")
+	@JsonIgnore
 	private List<Student> students;
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="class_room_id")
+	@JsonIgnore
 	private List<TimeTable> timeTables;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="branch_id")
+	@JsonIgnore
 	private SchoolBranch schoolBranch;
 	public ClassRoom() {
 		super();

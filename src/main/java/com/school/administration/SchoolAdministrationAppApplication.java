@@ -1,12 +1,64 @@
 package com.school.administration;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.school.administration.branch.service.SchoolBranchService;
+import com.school.administration.model.ClassRoom;
+import com.school.administration.model.Day;
+import com.school.administration.model.Period;
+import com.school.administration.model.SchoolBranch;
+import com.school.administration.model.Student;
+import com.school.administration.model.Subject;
+import com.school.administration.model.Teacher;
+import com.school.administration.model.TimeTable;
 
 @SpringBootApplication
 public class SchoolAdministrationAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SchoolAdministrationAppApplication.class, args);
+	}
+	
+	@Bean
+	CommandLineRunner runner(SchoolBranchService schoolBranchService) {
+		return args -> {
+			schoolBranchService.saveBranch(new SchoolBranch(null, "branchName", "branchLocation", createClassrooms()));
+		};
+	}
+
+	private List<ClassRoom> createClassrooms() {
+		List<ClassRoom> classRooms = new ArrayList<>();
+		classRooms.add(new ClassRoom(null, null, "LKG", "A", createStudents(1), createTimetable(1)));
+		return classRooms;
+	}
+
+	private List<TimeTable> createTimetable(int i) {
+		 List<TimeTable> timeTables = new ArrayList<>();
+		 timeTables.add(new TimeTable(null, "timeTableName"+i, Day.MONDAY, null, createPeriod(i)));
+		return timeTables;
+	}
+
+	private List<Period> createPeriod(int i) {
+		List<Period> periods = new ArrayList<>();
+		Teacher teacher = new Teacher(null, "TeacherName", null);
+		periods.add(new Period(null, "periodName"+i, LocalTime.now(), LocalTime.now(), null, createSubject(teacher), teacher));
+		return periods;
+	}
+
+	private Subject createSubject(Teacher teacher) {
+		return new Subject(null,"subjectName", teacher, null);
+	}
+
+	private List<Student> createStudents(int i) {
+		List<Student> students = new ArrayList<>();
+		students.add(new Student(null,"rollNo","studentName",null));
+		return null;
 	}
 }

@@ -1,11 +1,14 @@
 package com.school.administration.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Student {
@@ -16,8 +19,9 @@ public class Student {
 	private String rollNo;
 	private String studentName;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="class_roon_id")
+	@JsonIgnore
 	private ClassRoom classRoom;
 
 	public Student() {
