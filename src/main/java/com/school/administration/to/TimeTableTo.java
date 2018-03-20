@@ -1,7 +1,6 @@
 package com.school.administration.to;
 
 import java.time.DayOfWeek;
-import java.util.List;
 
 import com.school.administration.model.ClassRoom;
 import com.school.administration.model.Period;
@@ -13,19 +12,19 @@ public class TimeTableTo {
 	private String timeTableName;
 	private DayOfWeek dayOfWeek;
 	private ClassRoom classRoom;
-	private List<Period> period;
+	private Period period;
 	
 	
 	public TimeTableTo() {
 		super();
 	}
-	public TimeTableTo(TimeTable timeTable) {
+	public TimeTableTo(TimeTable timeTable, ClassRoom classRoom, Period period) {
 		super();
 		this.timeTableId = timeTable.getTimeTableId();
 		this.timeTableName = timeTable.getTimeTableName();
 		this.dayOfWeek = timeTable.getDayOfWeek();
-		this.classRoom = timeTable.getClassRoom();
-		this.period = timeTable.getPeriod();
+		this.classRoom = classRoom;
+		this.period = period;
 	}
 	public Long getTimeTableId() {
 		return timeTableId;
@@ -45,10 +44,10 @@ public class TimeTableTo {
 	public void setClassRoom(ClassRoom classRoom) {
 		this.classRoom = classRoom;
 	}
-	public List<Period> getPeriod() {
+	public Period getPeriod() {
 		return period;
 	}
-	public void setPeriod(List<Period> period) {
+	public void setPeriod(Period period) {
 		this.period = period;
 	}
 	public DayOfWeek getDayOfWeek() {

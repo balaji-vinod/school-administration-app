@@ -47,8 +47,12 @@ public class SchoolAdministrationAppApplication {
 
 	private List<Period> createPeriod(int i) {
 		List<Period> periods = new ArrayList<>();
-		Teacher teacher = new Teacher(null, "TeacherName", null);
-		periods.add(new Period(null, "periodName"+i, LocalTime.now(), LocalTime.now(), null, createSubject(teacher), teacher));
+		Teacher teacher = new Teacher(null, "TeacherName"+i, null);
+		periods.add(new Period(null, "English"+i, LocalTime.of(9, 0), LocalTime.of(10, 0), null, createSubject(teacher), teacher));
+		periods.add(new Period(null, "Tamil"+i, LocalTime.of(10, 5), LocalTime.of(11, 0), null, createSubject(teacher), teacher));
+		teacher = new Teacher(null, "TeacherName1"+i, null);
+		periods.add(new Period(null, "English1"+i, LocalTime.of(9, 0), LocalTime.of(10, 0), null, createSubject(teacher), teacher));
+		periods.add(new Period(null, "Tamil1"+i, LocalTime.of(10, 5), LocalTime.of(11, 0), null, createSubject(teacher), teacher));
 		return periods;
 	}
 
