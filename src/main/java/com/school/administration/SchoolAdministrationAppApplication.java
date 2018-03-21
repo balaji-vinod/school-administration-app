@@ -36,12 +36,14 @@ public class SchoolAdministrationAppApplication {
 	private List<ClassRoom> createClassrooms() {
 		List<ClassRoom> classRooms = new ArrayList<>();
 		classRooms.add(new ClassRoom(null, null, "LKG", "A", createStudents(1), createTimetable(1)));
+		classRooms.add(new ClassRoom(null, null, "LKG", "A", createStudents(2), createTimetable(2)));
 		return classRooms;
 	}
 
 	private List<TimeTable> createTimetable(int i) {
 		 List<TimeTable> timeTables = new ArrayList<>();
 		 timeTables.add(new TimeTable(null, "timeTableName"+i, DayOfWeek.MONDAY, null, createPeriod(i)));
+		 timeTables.add(new TimeTable(null, "timeTableName"+i, DayOfWeek.TUESDAY, null, createPeriod(i)));
 		return timeTables;
 	}
 

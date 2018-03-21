@@ -1,10 +1,10 @@
 package com.school.administration.to;
 
 import java.time.DayOfWeek;
+import java.time.LocalTime;
 
 import com.school.administration.model.ClassRoom;
 import com.school.administration.model.Period;
-import com.school.administration.model.TimeTable;
 
 public class TimeTableTo {
 	
@@ -18,13 +18,13 @@ public class TimeTableTo {
 	public TimeTableTo() {
 		super();
 	}
-	public TimeTableTo(TimeTable timeTable, ClassRoom classRoom, Period period) {
+	public TimeTableTo(Long timeTableId, String timeTableName, DayOfWeek dayOfWeek, Long classRoomId, String standard, String section, Long periodId, String periodName, LocalTime startTime, LocalTime endTime) {
 		super();
-		this.timeTableId = timeTable.getTimeTableId();
-		this.timeTableName = timeTable.getTimeTableName();
-		this.dayOfWeek = timeTable.getDayOfWeek();
-		this.classRoom = classRoom;
-		this.period = period;
+		this.timeTableId = timeTableId;
+		this.timeTableName = timeTableName;
+		this.dayOfWeek = dayOfWeek;
+		this.classRoom = new ClassRoom(classRoomId, null, standard, section, null, null);
+		this.period = new Period(periodId, periodName, startTime, endTime, null, null, null);
 	}
 	public Long getTimeTableId() {
 		return timeTableId;
