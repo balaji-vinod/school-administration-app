@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.school.administration.model.SchoolBranch;
-import com.school.administration.repository.branch.SchoolBranchRepository;
+import com.school.administration.repository.schoolbranch.SchoolBranchRepository;
 
 @Service
 public class SchoolBranchService {
