@@ -1,4 +1,4 @@
-package com.school.administration.timetable.dao;
+package com.school.administration.dao.timetable;
 
 import java.time.DayOfWeek;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.school.administration.timetable.repository;
+package com.school.administration.repository.timetable;
 
 import java.time.DayOfWeek;
 import java.util.List;

@@ -10,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.school.administration.branch.service.SchoolBranchService;
 import com.school.administration.model.ClassRoom;
 import com.school.administration.model.Period;
 import com.school.administration.model.SchoolBranch;
@@ -18,6 +17,7 @@ import com.school.administration.model.Student;
 import com.school.administration.model.Subject;
 import com.school.administration.model.Teacher;
 import com.school.administration.model.TimeTable;
+import com.school.administration.service.branch.SchoolBranchService;
 
 @SpringBootApplication
 public class SchoolAdministrationAppApplication {

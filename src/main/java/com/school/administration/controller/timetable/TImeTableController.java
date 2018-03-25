@@ -1,4 +1,4 @@
-package com.school.administration.timetable.controller;
+package com.school.administration.controller.timetable;
 
 import java.time.DayOfWeek;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.school.administration.timetable.service.TimeTableService;
+import com.school.administration.service.timetable.TimeTableService;
 import com.school.administration.to.TimeTableTo;
 
 @RestController

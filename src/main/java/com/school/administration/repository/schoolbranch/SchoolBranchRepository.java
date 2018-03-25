@@ -1,4 +1,4 @@
-package com.school.administration.branch.repository;
+package com.school.administration.repository.schoolbranch;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
