@@ -21,7 +21,7 @@ public class TImeTableController {
 	
 	@GetMapping("/teacher/{teacherId}/{dateOfWeek}")
 	public List<TimeTableTo> getTimeSheetForTeacher(@PathVariable("teacherId") Long teacherId, @PathVariable("dateOfWeek") Integer dateOfWeek) {
-		return timeTableService.getTimeTableForTeacher(teacherId, DayOfWeek.of(dateOfWeek));
+		return timeTableService.getTimeTableForTeacher(teacherId, DayOfWeek.of(dateOfWeek+1));
 	}
 
 }
